@@ -10,8 +10,9 @@ from csv import DictReader
 import json
 import requests
 from datetime import datetime
+import random, string
 
-ENTRY_POINT = 'localhost:5000'
+ENTRY_POINT = 'ec2-54-206-125-235.ap-southeast-2.compute.amazonaws.com'
 
 
 def post_hosts():
@@ -39,7 +40,7 @@ def post_partnerships():
     '''
     json_body = ('['
                  '  {'
-                 '    "host": "PSVT-0020",'
+                 '    "host": "1-CPA",'
                  '    "service": "service1",'
                  '    "action": "action1",'
                  '    "fromPartyId": "fromPartyId",'
@@ -52,7 +53,7 @@ def post_partnerships():
                  '    "status": "active"'
                  '  },'
                  '  {'
-                 '    "host": "PSVT-0020",'
+                 '    "host": "1-CPA",'
                  '    "service": "service1",'
                  '    "action": "action2",'
                  '    "fromPartyId": "fromPartyId",'
@@ -65,7 +66,7 @@ def post_partnerships():
                  '    "status": "active"'
                  '  },'
                  '  {'
-                 '    "host": "PSVT-0020",'
+                 '    "host": "1-CPA",'
                  '    "service": "service1",'
                  '    "action": "action3",'
                  '    "fromPartyId": "fromPartyId",'
@@ -78,7 +79,7 @@ def post_partnerships():
                  '    "status": "active"'
                  '  },'
                  '  {'
-                 '    "host": "PSVT-0020",'
+                 '    "host": "2-CPA",'
                  '    "service": "service1",'
                  '    "action": "action4",'
                  '    "fromPartyId": "fromPartyId",'
@@ -91,7 +92,7 @@ def post_partnerships():
                  '    "status": "inactive"'
                  '  },'
                  '  {'
-                 '    "host": "NBNTEST03-NBNCO-PSVT-0020",'
+                 '    "host": "2-CPA",'
                  '    "service": "service2",'
                  '    "action": "action11",'
                  '    "fromPartyId": "fromPartyId",'
@@ -104,7 +105,7 @@ def post_partnerships():
                  '    "status": "active"'
                  '  },'
                  '  {'
-                 '    "host": "NBNTEST03-NBNCO-PSVT-0020",'
+                 '    "host": "3-CPA",'
                  '    "service": "service2",'
                  '    "action": "action12",'
                  '    "fromPartyId": "fromPartyId",'
@@ -117,7 +118,7 @@ def post_partnerships():
                  '    "status": "active"'
                  '  },'
                  '  {'
-                 '    "host": "NBNTEST03-NBNCO-PSVT-0020",'
+                 '    "host": "3-CPA",'
                  '    "service": "service2",'
                  '    "action": "action13",'
                  '    "fromPartyId": "fromPartyId",'
@@ -135,6 +136,23 @@ def post_partnerships():
 
     r = perform_post('partnerships', json_body)
     print('posted partnerships. HTTP Status: ', r.status_code, r.text)
+
+
+def post_addresses():
+    '''
+    Generate random addresses
+    :return:
+    '''
+
+    for i in range(10):
+        x = {
+            "location_id": 'LOC{:010d}'.format(i),
+            "boundary": 'BOUNDARY-{}'.format(''.join(random.choices(string.ascii_uppercase + string.digits, k=10))),
+            "x.cpi_id": 'CPI ID PLACEHOLDER'
+        }
+        print(json.dumps(x))
+        r = perform_post('addresses', json.dumps(x))
+        print('posted hosts. HTTP Status: ', r.status_code, r.text)
 
 
 def perform_post(resource, data):
@@ -160,4 +178,5 @@ def endpoint(resource):
 if __name__ == "__main__":
     post_hosts()
     post_partnerships()
+    # post_addresses()
 

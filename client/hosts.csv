@@ -1,7 +1,7 @@
 host,port,instance,cpa_id,status
-dc.local,3443,corvuspsvt1,N-PSVT-0020,active
-dc.local,3443,corvuspsvt3,O-PSVT-0020,active
-dc.local,3443,corvuspsvt4,O-PSVT-0020,active
-dc.local,2443,corvusrsvt1,O-RSVT-0020,active
-dc.local,2443,corvusrsvt3,O-RSVT-0020,active
-dc.local,2443,corvusrsvt4,O-RSVT-0020,active
+dc.local,3443,corvuspsvt1,1-CPA,active
+dc.local,3443,corvuspsvt3,2-CPA,active
+dc.local,3443,corvuspsvt4,3-CPA,active
+dc.local,2443,corvusrsvt1,4-CPA,active
+dc.local,2443,corvusrsvt3,5-CPA,active
+dc.local,2443,corvusrsvt4,6-CPA,active
