@@ -63,13 +63,14 @@ def unique_resource_single(resource):
 def pre_get_callback(resource, request, lookup):
     print('a get request was received on {}, request: {}, lookup: {}'.format(resource, request, lookup))
 
+
 def callback_for_partnerships(request, lookup):
     print('this is for partnerships {}\n{}'.format(request, lookup))
 
 
-app.on_pre_GET += pre_get_callback
-app.on_pre_GET_partnerships += callback_for_partnerships
+# app.on_pre_GET += pre_get_callback
+# app.on_pre_GET_partnerships += callback_for_partnerships
 
-# using reloader will destroy the in-memory sqlite db
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
