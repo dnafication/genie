@@ -36,3 +36,13 @@ DOMAIN = DomainConfig({
     'appointments': ResourceConfig(Appointment),
     'orders': ResourceConfig(Order)
 }).render()
+
+DOMAIN['addresses'].update(
+    {
+        'item_title': 'address',
+        'additional_lookup': {
+            'url': 'regex("[\w]+")',
+            'field': 'location_id'
+        }
+    }
+)
