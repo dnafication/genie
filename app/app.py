@@ -17,7 +17,7 @@ from eve import Eve
 from eve_sqlalchemy import SQL
 from eve_sqlalchemy.validation import ValidatorSQL
 
-from data_model.domain import Base, Host
+from app.data_model.domain import Base, Host
 from sqlalchemy.sql.expression import func
 from flask import make_response
 
