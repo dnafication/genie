@@ -78,9 +78,10 @@ Following ports need to be open if it needs to be accessed from the internet or 
 |App/protocol|Port|Note|
 |--|--|--|
 |ssh|22||
-|Genie|80|
-|Elasticsearch|||
-|Kibana|||
+|Genie|80||
+|Elasticsearch|9200, 9300||
+|Logstash|5000||
+|Kibana|5601||
 |MySQL|3306||
 |adminer|8080|mysql admin work (optional)|
 
@@ -162,3 +163,4 @@ I have overlooked many security aspects in order for it to work. Use this setup 
  - Security testing (at least basic penetration testing)
  - MySQL root password is open in the compose file.
  - Settings file has MySQL password in plain text.
+
