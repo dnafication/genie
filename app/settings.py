@@ -5,7 +5,7 @@
 """
 from eve_sqlalchemy.config import DomainConfig, ResourceConfig
 
-from app.app.data_model.domain import Host, Partnership, Address, Appointment, Order
+from data_model.domain import Host, Partnership, Address, Appointment, Order
 
 SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:example@localhost:3306/genie'
 
