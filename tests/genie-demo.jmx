@@ -225,7 +225,7 @@ log.info(&quot;add a extractor to get a random document and pass it to get-docum
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;sam_id&quot;: &quot;sam5&quot;&#xd;
+	&quot;sam_id&quot;: &quot;sam7&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -341,7 +341,7 @@ log.info(&quot;add a extractor to get a random document and pass it to get-docum
         </GaussianRandomTimer>
         <hashTree/>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
