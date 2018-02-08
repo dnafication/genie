@@ -16,10 +16,15 @@
 from eve import Eve
 from eve_sqlalchemy import SQL
 from eve_sqlalchemy.validation import ValidatorSQL
+import os
 
-from app.data_model.domain import Base, Host
+from data_model.domain import Base, Host
 from sqlalchemy.sql.expression import func
 from flask import make_response
+
+
+if 'EVE_SETTINGS' not in os.environ:
+    os.environ['EVE_SETTINGS'] = os.path.dirname(__file__) + "/settings.py"
 
 app = Eve(validator=ValidatorSQL, data=SQL)
 
@@ -70,7 +75,6 @@ def callback_for_partnerships(request, lookup):
 
 # app.on_pre_GET += pre_get_callback
 # app.on_pre_GET_partnerships += callback_for_partnerships
-
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
