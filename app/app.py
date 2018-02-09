@@ -38,31 +38,31 @@ db.create_all()
 db.session.commit()
 
 
-@app.route('/random/<resource>')
-def random_resource_single(resource):
-    """
-    custom route to get a random value from db
-
-    :param resource:
-    :return:
-    """
-    if resource == 'hosts':
-        r = func.rand()
-        host = db.session.query(Host).order_by(r).first()
-        resp = make_response("{} - {}".format(r, host.instance), 200)
-        return resp
-    else:
-        return 'works only for hosts'
-
-
-@app.route('/unique/<resource>')
-def unique_resource_single(resource):
-    """
-    custom route to get a unique value from db (burn after read)
-    consider using a header and a hook. basically use header which says whether the user need unique/random and also
-    the count
-    """
-    pass
+# @app.route('/random/<resource>')
+# def random_resource_single(resource):
+#     """
+#     custom route to get a random value from db
+#
+#     :param resource:
+#     :return:
+#     """
+#     if resource == 'hosts':
+#         r = func.rand()
+#         host = db.session.query(Host).order_by(r).first()
+#         resp = make_response("{} - {}".format(r, host.instance), 200)
+#         return resp
+#     else:
+#         return 'works only for hosts'
+#
+#
+# @app.route('/unique/<resource>')
+# def unique_resource_single(resource):
+#     """
+#     custom route to get a unique value from db (burn after read)
+#     consider using a header and a hook. basically use header which says whether the user need unique/random and also
+#     the count
+#     """
+#     pass
 
 
 def pre_get_callback(resource, request, lookup):
